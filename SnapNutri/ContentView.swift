@@ -9,11 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.brandPrimary
-                .ignoresSafeArea()
-            // ...
-        }
         TabView{
             //Home Page
             HomePage()
@@ -35,7 +30,6 @@ struct ContentView: View {
                 .tabItem{Label("Rewards", systemImage: "gift")}
         }
     }
-    
 }
 
 

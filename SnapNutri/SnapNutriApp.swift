@@ -11,7 +11,6 @@ import SwiftUI
 struct SnapNutriApp: App {
     var body: some Scene {
         WindowGroup {
-            Colors()
             ContentView()
         }
     }
