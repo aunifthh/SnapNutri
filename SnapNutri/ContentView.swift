@@ -9,15 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color.brandPrimary
+                .ignoresSafeArea()
+            // ...
         }
-        .padding()
+        TabView{
+            //Home Page
+            HomePage()
+                .tabItem{Label("Home", systemImage: "house.fill")}
+            
+            //Trends
+            TrendsPage()
+                .tabItem{Label("Trends", systemImage:"chart.bar.xaxis")}
+            //Snap
+            SnapPage()
+                .tabItem{Label("Snap", systemImage: "camera")}
+            
+            //History
+            HistoryPage()
+                .tabItem{Label("History", systemImage:"clock.arrow.trianglehead.counterclockwise.rotate.90")}
+            
+            //Rewards
+            RewardsPage()
+                .tabItem{Label("Rewards", systemImage: "gift")}
+        }
     }
+    
 }
+
 
 #Preview {
     ContentView()
