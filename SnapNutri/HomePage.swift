@@ -15,6 +15,7 @@ struct HomePage: View {
             
             VStack {
                 // page content
+                Text("afiqah was here")
             }
         }
     }
