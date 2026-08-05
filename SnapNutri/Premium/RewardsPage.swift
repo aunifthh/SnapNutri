@@ -24,16 +24,20 @@ struct RewardsPage: View {
                         
                         HStack(spacing:4){
                             Image(systemName: "crown.fill")
+                                .font(.caption)
                                 .foregroundStyle(.yellow)
                             
                             Text("Premium")
                                 .font(.caption)
                                 .bold()
                                 .foregroundStyle(.yellow)
+                            
                         }
                         .padding()
                         .background(Color("hijausecond"), in: RoundedRectangle(cornerRadius: 100))
+                        .frame(width: 110, height: 30)
                         .clipShape(Capsule())
+                        .shadow(radius: 5)
                         
                     }
                     Spacer()
@@ -114,6 +118,7 @@ struct RewardsPage: View {
                         HStack{
                             Text("Log all 3 meals")
                                 .font(.subheadline)
+                               
                             Text("+20 pts")
                                 .font(.subheadline)
                                 .bold()
@@ -161,12 +166,15 @@ struct RewardsPage: View {
                                     .frame(width: 80, height: 35)
                             }.background(.white, in:RoundedRectangle(cornerRadius: 20))
                                 .shadow(radius: 10)
+                                .clipShape(.capsule)
                             
                             Text("RM 20 Off Voucher")
                                 .font(.subheadline)
+                                .foregroundStyle(.white)
                             Text("+20 pts")
                                 .font(.subheadline)
                                 .bold()
+                                .foregroundStyle(.white)
                         }
                         
                     }
