@@ -114,11 +114,11 @@ struct RewardsPage: View {
                         .font(.title3)
                         .bold()
                     
-                    VStack (spacing: 12){
+                    VStack (alignment:.leading, spacing: 12){
                         HStack{
                             Text("Log all 3 meals")
                                 .font(.subheadline)
-                               
+                            Spacer()
                             Text("+20 pts")
                                 .font(.subheadline)
                                 .bold()
@@ -128,6 +128,7 @@ struct RewardsPage: View {
                         HStack{
                             Text("Monthly update height & weight")
                                 .font(.subheadline)
+                            Spacer()
                             Text("+40 pts")
                                 .font(.subheadline)
                                 .bold()
@@ -137,6 +138,7 @@ struct RewardsPage: View {
                         HStack{
                             Text("Reached healthy BMI")
                                 .font(.subheadline)
+                            Spacer()
                             Text("+100 pts")
                                 .font(.subheadline)
                                 .bold()
@@ -159,22 +161,38 @@ struct RewardsPage: View {
                     
                     VStack (spacing: 12){
                         HStack{
-                            VStack{
-                                
+                            
+                            VStack(alignment: .leading){
                                 Image("jayagrocer")
                                     .resizable()
                                     .frame(width: 80, height: 35)
-                            }.background(.white, in:RoundedRectangle(cornerRadius: 20))
-                                .shadow(radius: 10)
-                                .clipShape(.capsule)
-                            
-                            Text("RM 20 Off Voucher")
-                                .font(.subheadline)
-                                .foregroundStyle(.white)
-                            Text("+20 pts")
-                                .font(.subheadline)
-                                .bold()
-                                .foregroundStyle(.white)
+                            }
+                            .background(.white, in:RoundedRectangle(cornerRadius: 20))
+                            .shadow(radius: 10)
+                            .clipShape(.capsule)
+                            VStack (alignment: .leading, spacing: 5){
+                                Text("RM 20 Off Voucher")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white)
+                                Text("400 pts")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.yellow)
+                                    .bold()
+                            }
+                            Spacer()
+                            Button(action: {
+                                // claim action
+                            }) {
+                                Text("Claim")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.white)
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 8)
+                                    .background(Color.blue)
+                                    .clipShape(Capsule())
+                                    .shadow(radius: 3)
+                            }
                         }
                         
                     }
@@ -185,6 +203,7 @@ struct RewardsPage: View {
                     
                 }
                 .padding()
+                Spacer()
             }
             
         }
