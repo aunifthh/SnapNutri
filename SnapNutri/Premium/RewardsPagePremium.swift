@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct RewardsPage: View {
+struct RewardsPagePremium: View {
     var body: some View {
         ZStack {
             Color("hijaumain")
                 .ignoresSafeArea()
             
             //title
-            ScrollView {
                 VStack {
                     HStack {
                         HStack {
@@ -58,22 +57,23 @@ struct RewardsPage: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.white)
                                     .bold()
-                                
+                                Spacer()
                                 Text("2X Multiplier")
                                     .font(.caption)
                                     .foregroundStyle(.white)
-                                    .padding(.horizontal, 12)    // add this
+                                    .padding(.horizontal, 12)
                                     .padding(.vertical, 6)
                                     .background(Color("hijauthird"), in: RoundedRectangle(cornerRadius: 60))
                                     .padding(.leading)
                             }
                             HStack{
                                 Text("480")
-                                    .font(.title)
+                                    .font(.largeTitle)
                                     .fontWeight(.bold)
                                     .foregroundStyle(.yellow)
+                                    .padding(.trailing)
                                 Text("pts")
-                                    .font(.caption)
+                                    .font(.subheadline)
                                     .foregroundStyle(.yellow)
                                     .padding(.top)
                             }
@@ -163,14 +163,15 @@ struct RewardsPage: View {
                         VStack (spacing: 12){
                             HStack{
                                 
-                                VStack(alignment: .leading){
+                                HStack{
                                     Image("jayagrocer")
-                                        .resizable()
-                                        .frame(width: 80, height: 35)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 80, height: 35)
+                                            .padding(10)
+                                            .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                                            //.shadow(radius: 10)
                                 }
-                                .background(.white, in:RoundedRectangle(cornerRadius: 20))
-                                .shadow(radius: 10)
-                                .clipShape(.capsule)
                                 VStack (alignment: .leading, spacing: 5){
                                     Text("RM 20 Off Voucher")
                                         .font(.subheadline)
@@ -206,12 +207,12 @@ struct RewardsPage: View {
                     .padding()
                     Spacer()
                 }
-            }
+            
             
         }
     }
 }
 
 #Preview {
-    RewardsPage()
+    RewardsPagePremium()
 }

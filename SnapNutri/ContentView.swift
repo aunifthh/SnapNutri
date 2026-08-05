@@ -26,7 +26,7 @@ struct ContentView: View {
                 .tabItem{Label("History", systemImage:"clock.arrow.trianglehead.counterclockwise.rotate.90")}
             
             //Rewards
-            RewardsPage()
+            RewardsPagePremium()
                 .tabItem{Label("Rewards", systemImage: "gift")}
         }
     }
