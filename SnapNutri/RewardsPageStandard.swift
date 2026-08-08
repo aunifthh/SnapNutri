@@ -9,11 +9,12 @@ import SwiftUI
 
 struct RewardsPageStandard: View {
     var body: some View {
-        ZStack {
-            Color("hijaumain")
-                .ignoresSafeArea()
-            
-            //title
+        NavigationStack {
+            ZStack {
+                Color("hijaumain")
+                    .ignoresSafeArea()
+                
+                //title
                 VStack {
                     HStack {
                         HStack {
@@ -22,31 +23,35 @@ struct RewardsPageStandard: View {
                                 .fontWeight(.bold)
                                 .padding(.leading)
                             
-//                            HStack(spacing:4){
-////                                Image(systemName: "crown.fill")
-////                                    .font(.caption)
-////                                    .foregroundStyle(.yellow)
-////
-////                                Text("Premium")
-////                                    .font(.caption)
-////                                    .bold()
-////                                    .foregroundStyle(.yellow)
-//                                
-//                            }
-//                            .padding()
-//                            .background(Color("hijausecond"), in: RoundedRectangle(cornerRadius: 100))
-//                            .frame(width: 110, height: 30)
-//                            .clipShape(Capsule())
-//                            .shadow(radius: 5)
+                            //                            HStack(spacing:4){
+                            ////                                Image(systemName: "crown.fill")
+                            ////                                    .font(.caption)
+                            ////                                    .foregroundStyle(.yellow)
+                            ////
+                            ////                                Text("Premium")
+                            ////                                    .font(.caption)
+                            ////                                    .bold()
+                            ////                                    .foregroundStyle(.yellow)
+                            //                                
+                            //                            }
+                            //                            .padding()
+                            //                            .background(Color("hijausecond"), in: RoundedRectangle(cornerRadius: 100))
+                            //                            .frame(width: 110, height: 30)
+                            //                            .clipShape(Capsule())
+                            //                            .shadow(radius: 5)
                             
                         }
                         Spacer()
                         
                         //profile icon
-                        Image(systemName: "person.circle")
-                            .font(.system(size: 40))
-                            .foregroundStyle(Color("grey"))
-                            .frame(width: 80, height: 80)
+                        NavigationLink {
+                            ProfilePage()
+                        } label: {
+                            Image(systemName: "person.circle")
+                                .font(.system(size: 40))
+                                .foregroundStyle(Color("grey"))
+                                .frame(width: 80, height: 80)
+                        }
                     }
                     
                     //points card
@@ -58,13 +63,13 @@ struct RewardsPageStandard: View {
                                     .foregroundStyle(.black)
                                     .bold()
                                 Spacer()
-//                                Text("2X Multiplier")
-//                                    .font(.caption)
-//                                    .foregroundStyle(.white)
-//                                    .padding(.horizontal, 12)
-//                                    .padding(.vertical, 6)
-//                                    .background(Color("hijauthird"), in: RoundedRectangle(cornerRadius: 60))
-//                                    .padding(.leading)
+                                //                                Text("2X Multiplier")
+                                //                                    .font(.caption)
+                                //                                    .foregroundStyle(.white)
+                                //                                    .padding(.horizontal, 12)
+                                //                                    .padding(.vertical, 6)
+                                //                                    .background(Color("hijauthird"), in: RoundedRectangle(cornerRadius: 60))
+                                //                                    .padding(.leading)
                             }
                             HStack {
                                 Text("240")
@@ -171,15 +176,15 @@ struct RewardsPageStandard: View {
                                 
                                 HStack{
                                     Image("jayagrocer")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 80, height: 35)
-                                            .padding(10)
-                                            .background(.white, in: RoundedRectangle(cornerRadius: 20))
-                                            //.shadow(radius: 10)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 80, height: 35)
+                                        .padding(10)
+                                        .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                                    //.shadow(radius: 10)
                                 }
                                 VStack (alignment: .leading, spacing: 5){
-                                    Text("RM 20 Off Voucher")
+                                    Text("RM 5 Off Voucher")
                                         .font(.subheadline)
                                         .foregroundStyle(.black)
                                         .bold()
@@ -189,9 +194,14 @@ struct RewardsPageStandard: View {
                                         .bold()
                                 }
                                 Spacer()
-                                Button(action: {
-                                    // claim action
-                                }) {
+                                NavigationLink {
+                                    RewardDetaiStandardlView(
+                                        logo: "jayagrocer",
+                                        title: "Jaya Grocer RM 5 in-store voucher",
+                                        cost: "200 pts",
+                                        validity: "30 days upon redemption"
+                                    )
+                                } label: {
                                     Text("Claim")
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
@@ -214,8 +224,9 @@ struct RewardsPageStandard: View {
                     .padding()
                     Spacer()
                 }
-            
-            
+                
+                
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  RewardsPage.swift
+//  RewardsPagePremium.swift
 //  SnapNutri
 //
 //  Created by auni fatihah auzi on 04/08/2026.
@@ -9,11 +9,12 @@ import SwiftUI
 
 struct RewardsPagePremium: View {
     var body: some View {
-        ZStack {
-            Color("hijaumain")
-                .ignoresSafeArea()
-            
-            //title
+        NavigationStack {
+            ZStack {
+                Color("hijaumain")
+                    .ignoresSafeArea()
+                
+                //title
                 VStack {
                     HStack {
                         HStack {
@@ -43,10 +44,14 @@ struct RewardsPagePremium: View {
                         Spacer()
                         
                         //profile icon
-                        Image(systemName: "person.circle")
-                            .font(.system(size: 40))
-                            .foregroundStyle(Color("grey"))
-                            .frame(width: 80, height: 80)
+                        NavigationLink {
+                            ProfilePage()
+                        } label: {
+                            Image(systemName: "person.circle")
+                                .font(.system(size: 40))
+                                .foregroundStyle(Color("grey"))
+                                .frame(width: 80, height: 80)
+                        }
                     }
                     
                     //points card
@@ -165,12 +170,12 @@ struct RewardsPagePremium: View {
                                 
                                 HStack{
                                     Image("jayagrocer")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 80, height: 35)
-                                            .padding(10)
-                                            .background(.white, in: RoundedRectangle(cornerRadius: 20))
-                                            //.shadow(radius: 10)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 80, height: 35)
+                                        .padding(10)
+                                        .background(.white, in: RoundedRectangle(cornerRadius: 20))
+                                    //.shadow(radius: 10)
                                 }
                                 VStack (alignment: .leading, spacing: 5){
                                     Text("RM 20 Off Voucher")
@@ -182,9 +187,14 @@ struct RewardsPagePremium: View {
                                         .bold()
                                 }
                                 Spacer()
-                                Button(action: {
-                                    // claim action
-                                }) {
+                                NavigationLink {
+                                    RewardDetailView(
+                                        logo: "jayagrocer",
+                                        title: "Jaya Grocer RM 20 in-store voucher",
+                                        cost: "400 pts",
+                                        validity: "30 days upon redemption"
+                                    )
+                                } label: {
                                     Text("Claim")
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
@@ -193,7 +203,7 @@ struct RewardsPagePremium: View {
                                         .padding(.vertical, 8)
                                         .background(Color.blue)
                                         .clipShape(Capsule())
-                                        .shadow(radius: 3)
+                                        .shadow(radius: 1)
                                 }
                             }
                             
@@ -207,8 +217,9 @@ struct RewardsPagePremium: View {
                     .padding()
                     Spacer()
                 }
-            
-            
+                
+                
+            }
         }
     }
 }

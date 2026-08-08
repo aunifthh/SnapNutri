@@ -8,110 +8,81 @@
 import SwiftUI
 
 struct PaymentSheet: View {
-    @State private var showPayment = false
+    @Binding var showPayment: Bool
     
     var body: some View {
-        var onClose: () -> Void = {}
-        
-        ZStack {
-            Color("hijaumain")
-                .ignoresSafeArea()
-            VStack{
-                HStack{
-                    Image(systemName: "applelogo")
-                    Text("Pay")
-                        .bold()
-                    Spacer()
-                    Button(action: onClose) {
-                        Image(systemName: "xmark.circle")
-                            .font(.title2)
-                            .foregroundStyle(Color("hijausecond"))
-                    }
-                }
-                .padding()
-                .font(.largeTitle)
-                
-                //1st row maybank card
-                VStack (spacing: 16){
-                    HStack{
-                        Image("maybankcard")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 40)
-                        
-                        Text("Maybank Visa Platinum")
-                            .font(.subheadline)
-                            .foregroundStyle(.black)
-                        Spacer()
-                        Text("···· 1234")
-                            .font(.subheadline)
-                            .foregroundStyle(.black)
-                            .padding(.leading)
-                    }
-                    //.foregroundStyle(.white)
-                    .padding()
-                    .background(Color(.white), in: RoundedRectangle(cornerRadius: 20))
-                    .shadow(radius: 10)
-                    
-                    
-                    //2nd row - change payment method
-                    HStack {
-                        Text("Change payment method")
-                            .font(.subheadline)
-                            .foregroundStyle(.black)
-                        Spacer()
-                        Image(systemName: "chevron.right.circle")
-                    }
-                    .padding()
-                    .background(Color(.white), in: RoundedRectangle(cornerRadius: 20))
-                    .shadow(radius: 10)
-                    
-                    //3rd row - plan details
-                    VStack(alignment: .leading){
-                        HStack{
-                            Image(systemName: "carrot")
-                            
-                            VStack (alignment: .leading){
-                                Text("SnapNutri")
-                                    .font(.subheadline)
-                                    .bold()
-                                    .foregroundStyle(.black)
-                                Text("App Store")
-                                    .font(.caption2)
-                                    .foregroundStyle(.gray)
-                                Text("Premium Subscription")
-                                    .font(.caption2)
-                                    .foregroundStyle(.gray)
-                                Divider()
-                            }
-                            
-                        }
-                        Text("7-day free trial")
-                            .font(.subheadline).bold()
-                        Text("Starting today")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        
-                        Text("RM 14.90 per month")
-                            .font(.subheadline).bold()
-                        Text("Starting on 4 August 2026")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        
-                    }
-                    .padding()
-                    .background(Color(.white), in: RoundedRectangle(cornerRadius: 20))
-                    .shadow(radius: 10)
-                    
-                }
-                
+        VStack(spacing: 16) {
+            // header
+            HStack {
+                Image(systemName: "applelogo")
+                Text("Pay").bold()
+                Spacer()
+//                Button(action: { showPayment = false }) {
+//                    Image(systemName: "x.circle")
+//                        .font(.title2)
+//                        .foregroundStyle(Color("hijausecond"))
+//                }
+            }
+            .font(.largeTitle)
+            .padding(.top)
+            
+            // card row
+            HStack {
+                Image("maybankcard")
+                    .resizable().scaledToFit()
+                    .frame(width: 60, height: 40)
+                Text("Maybank Visa Platinum")
+                    .font(.subheadline)
+                    .foregroundStyle(.black)
+                Spacer()
+                Text("···· 1234")
+                    .font(.subheadline)
+                    .foregroundStyle(.black)
             }
             .padding()
+            .background(.white, in: RoundedRectangle(cornerRadius: 20))
+            .shadow(radius: 10)
+            
+            // change payment method
+            HStack {
+                Text("Change Payment Method")
+                    .font(.subheadline)
+                    .foregroundStyle(.black)
+                Spacer()
+                Image(systemName: "chevron.right.circle")
+                    .foregroundStyle(.black)
+            }
+            .padding()
+            .background(.white, in: RoundedRectangle(cornerRadius: 20))
+            .shadow(radius: 10)
+            
+            // plan details
+            VStack(alignment: .leading, spacing: 4) {
+                Text("SnapNutri")
+                    .font(.subheadline).bold()
+                    .foregroundStyle(.black)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                Divider()
+                Text("7-day free trial").font(.subheadline).bold()
+                    .foregroundStyle(.black)
+                Text("Starting today")
+                    .font(.caption).foregroundStyle(.secondary)
+                Text("RM 14.90 per month").font(.subheadline).bold()
+                    .foregroundStyle(.black)
+                Text("Starting on 4 August 2026")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(.white, in: RoundedRectangle(cornerRadius: 20))
+            .shadow(radius: 10)
+            
+            Spacer()
         }
-        
+        .padding()
     }
 }
 
 #Preview {
-    PaymentSheet()
+    PaymentSheet(showPayment: .constant(true))
 }
