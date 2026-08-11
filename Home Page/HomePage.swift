@@ -8,7 +8,7 @@ struct HomePage: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
-                // Latar Belakang
+             //background
                 Color("hijaumain")
                     .opacity(0.12)
                     .ignoresSafeArea()
